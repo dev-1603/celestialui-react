@@ -1,6 +1,6 @@
 {
 	"name": "@celestial-ui/react",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "A comprehensive React component library with multi-framework styling support",
 	"type": "module",
 	"license": "MIT",

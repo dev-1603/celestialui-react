@@ -8,13 +8,13 @@
 		"name": "CelestialUI Team",
 		"email": "support@celestialui.dev"
 	},
-	"homepage": "https://github.com/celestialui/celestialui-react#readme",
+	"homepage": "https://github.com/dev-1603/celestialui-react#readme",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/celestialui/celestialui-react.git"
+		"url": "https://github.com/dev-1603/celestialui-react.git"
 	},
 	"bugs": {
-		"url": "https://github.com/celestialui/celestialui-react/issues"
+		"url": "https://github.com/dev-1603/celestialui-react/issues"
 	},
 	"keywords": [
 		"react",

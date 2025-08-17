@@ -214,6 +214,10 @@ This creates:
 - Safari (latest)
 - Edge (latest)
 
+## Repository
+
+Find the source code on GitHub: [https://github.com/dev-1603/celestialui-react](https://github.com/dev-1603/celestialui-react)
+
 ## Contributing
 
 We welcome contributions! Please see our contributing guidelines for more details.

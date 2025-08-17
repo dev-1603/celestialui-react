@@ -1,0 +1,32 @@
+.cui-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.cui-icon--spin {
+  animation: cui-spin 1s linear infinite;
+}
+
+.cui-icon--pulse {
+  animation: cui-pulse 1s ease-in-out infinite alternate;
+}
+
+/* Provider-specific styles */
+.cui-icon.material-icons {
+  font-feature-settings: 'liga';
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+.cui-icon svg {
+  display: block;
+}
+
+.cui-icon img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}

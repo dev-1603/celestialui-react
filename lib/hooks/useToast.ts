@@ -30,7 +30,7 @@ export function useToast() {
 
   const addToast = useCallback((options: ToastOptions): string => {
     const id = options.id || `toast-${++toastIdCounter}`
-    
+
     const toast: Toast = {
       id,
       title: options.title,

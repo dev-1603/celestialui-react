@@ -21,8 +21,8 @@ function App() {
       <header className="app-header">
         <h1>CelestialUI React Demo</h1>
         <p>A comprehensive React component library</p>
-        <Button 
-          variant="ghost" 
+        <Button
+          variant="ghost"
           size="sm"
           onClick={toggleTheme}
           rightIcon={isDark ? 'sun' : 'moon'}
@@ -52,26 +52,26 @@ function App() {
         <section className="demo-section">
           <Card title="Input Components" padding>
             <div className="input-grid">
-              <Input 
+              <Input
                 label="Basic Input"
                 placeholder="Enter text..."
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
               />
-              <Input 
+              <Input
                 label="Required Input"
                 placeholder="Required field"
                 required
                 prefixIcon="user"
                 helperText="This field is required"
               />
-              <Input 
+              <Input
                 label="Clearable Input"
                 placeholder="Clearable text"
                 clearable
                 suffixIcon="search"
               />
-              <Input 
+              <Input
                 label="Error State"
                 placeholder="Invalid input"
                 errorMessage="This field has an error"
@@ -96,7 +96,7 @@ function App() {
 
         <section className="demo-section">
           <div className="card-grid">
-            <Card 
+            <Card
               variant="elevated"
               hoverable
               title="Elevated Card"
@@ -106,7 +106,7 @@ function App() {
               <p>This is an elevated card with hover effects. It demonstrates the card component with various props.</p>
             </Card>
 
-            <Card 
+            <Card
               variant="outlined"
               hoverable
               title="Outlined Card"
@@ -116,7 +116,7 @@ function App() {
               <p>This is an outlined card that becomes interactive on hover.</p>
             </Card>
 
-            <Card 
+            <Card
               variant="filled"
               clickable
               title="Filled Card"

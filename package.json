@@ -43,6 +43,9 @@
 		"./themes/*": "./dist/themes/*",
 		"./components/*": "./lib/components/*"
 	},
+	"publishConfig": {
+		"access": "public"
+	},
 	"scripts": {
 		"dev": "vite",
 		"build": "run-p type-check build-lib build-demo",

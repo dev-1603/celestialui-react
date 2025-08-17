@@ -62,8 +62,8 @@ export const Icon: React.FC<IconProps> = ({
   // For now, we'll use FontAwesome icons as the default
   // This can be extended to support other providers later
   return (
-    <i 
-      className={iconClasses} 
+    <i
+      className={iconClasses}
       style={iconStyles}
       {...props}
     />

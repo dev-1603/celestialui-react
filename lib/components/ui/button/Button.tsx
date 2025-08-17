@@ -112,7 +112,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
       )}
 
       {leftIcon && !loading && (
-        <Icon 
+        <Icon
           name={leftIcon}
           className="cui-button__icon cui-button__icon--left"
         />
@@ -125,7 +125,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
       )}
 
       {rightIcon && !loading && (
-        <Icon 
+        <Icon
           name={rightIcon}
           className="cui-button__icon cui-button__icon--right"
         />
@@ -137,7 +137,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
 
   if (href) {
     return (
-      <Component 
+      <Component
         {...commonProps}
         href={href}
         target={target}

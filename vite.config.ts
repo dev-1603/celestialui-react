@@ -5,8 +5,8 @@ import dts from 'vite-plugin-dts'
 
 export default defineConfig({
   plugins: [
-    react(), 
-    dts({ 
+    react(),
+    dts({
       tsconfigPath: './tsconfig.app.json',
       outDir: 'dist',
       insertTypesEntry: true

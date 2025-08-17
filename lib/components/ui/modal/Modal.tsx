@@ -107,7 +107,7 @@ export const Modal: React.FC<ExtendedModalProps> = ({
   if (!isOpen) return null
 
   const modalContent = (
-    <div 
+    <div
       className={overlayClasses}
       style={overlayStyles}
       onClick={handleOverlayClick}

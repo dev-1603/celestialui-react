@@ -289,7 +289,7 @@
     padding: var(--cui-spacing-2);
     max-width: calc(100vw - var(--cui-spacing-4));
   }
-  
+
   .cui-toast-container--top-center,
   .cui-toast-container--bottom-center {
     left: var(--cui-spacing-2);

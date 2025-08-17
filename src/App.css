@@ -56,19 +56,19 @@
   .app {
     padding: 1rem;
   }
-  
+
   .button-grid {
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   }
-  
+
   .input-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .card-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .interactive-grid {
     flex-direction: column;
   }

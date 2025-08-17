@@ -23,7 +23,7 @@ export const Toast: React.FC<ToastProps> = ({
       case 'success': return 'check-circle'
       case 'error': return 'exclamation-circle'
       case 'warning': return 'exclamation-triangle'
-      case 'info': 
+      case 'info':
       default: return 'info-circle'
     }
   }
@@ -33,7 +33,7 @@ export const Toast: React.FC<ToastProps> = ({
       case 'success': return 'var(--cui-color-success-500)'
       case 'error': return 'var(--cui-color-error-500)'
       case 'warning': return 'var(--cui-color-warning-500)'
-      case 'info': 
+      case 'info':
       default: return 'var(--cui-color-primary-500)'
     }
   }
@@ -43,7 +43,7 @@ export const Toast: React.FC<ToastProps> = ({
       <div className="cui-toast__icon">
         <Icon name={getIcon()} color={getIconColor()} />
       </div>
-      
+
       <div className="cui-toast__content">
         {title && <div className="cui-toast__title">{title}</div>}
         <div className="cui-toast__message">{message}</div>

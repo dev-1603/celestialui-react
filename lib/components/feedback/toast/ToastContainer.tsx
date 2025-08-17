@@ -26,7 +26,7 @@ export const ToastContainer: React.FC<ToastContainerProps> = ({
   if (toasts.length === 0) return null
 
   const content = (
-    <div 
+    <div
       className={`cui-toast-container ${getPositionClass()}`}
       style={containerStyle}
     >

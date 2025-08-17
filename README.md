@@ -37,7 +37,7 @@ function App() {
   return (
     <div>
       <Card title="Welcome" padding>
-        <Input 
+        <Input
           label="Your name"
           placeholder="Enter your name"
         />
@@ -73,7 +73,7 @@ Versatile button component with multiple variants and states:
 Feature-rich input component with validation and styling:
 
 ```tsx
-<Input 
+<Input
   label="Email"
   type="email"
   required
@@ -93,7 +93,7 @@ Feature-rich input component with validation and styling:
 Flexible card component for content organization:
 
 ```tsx
-<Card 
+<Card
   variant="elevated"
   hoverable
   title="Card Title"
@@ -203,7 +203,7 @@ npm run build
 
 This creates:
 - `dist/celestial-ui.es.js` - ES modules build
-- `dist/celestial-ui.umd.js` - UMD build  
+- `dist/celestial-ui.umd.js` - UMD build
 - `dist/style.css` - CSS styles
 - `dist/index.d.ts` - TypeScript definitions
 

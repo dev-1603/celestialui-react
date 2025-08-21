@@ -5,8 +5,10 @@ import { Button } from './Button'
 // Mock the icon component
 vi.mock('../icon/Icon', () => ({
   Icon: ({ name, spin, ...props }: { name: string; spin?: boolean }) => (
-    <i data-testid={`icon-${name}`} data-spin={spin} {...props}>{name}</i>
-  )
+    <i data-testid={`icon-${name}`} data-spin={spin} {...props}>
+      {name}
+    </i>
+  ),
 }))
 
 describe('Button', () => {
@@ -23,7 +25,7 @@ describe('Button', () => {
   it('applies variant classes correctly', () => {
     const variants = ['primary', 'secondary', 'outline', 'ghost', 'link', 'destructive'] as const
 
-    variants.forEach(variant => {
+    variants.forEach((variant) => {
       const { container } = render(<Button variant={variant}>Test</Button>)
       const button = container.querySelector('button')
       expect(button).toHaveClass(`cui-button--${variant}`)
@@ -33,7 +35,7 @@ describe('Button', () => {
   it('applies size classes correctly', () => {
     const sizes = ['xs', 'sm', 'md', 'lg', 'xl'] as const
 
-    sizes.forEach(size => {
+    sizes.forEach((size) => {
       const { container } = render(<Button size={size}>Test</Button>)
       const button = container.querySelector('button')
       expect(button).toHaveClass(`cui-button--${size}`)
@@ -104,7 +106,11 @@ describe('Button', () => {
 
   it('prevents click when disabled', () => {
     const handleClick = vi.fn()
-    render(<Button disabled onClick={handleClick}>Disabled Button</Button>)
+    render(
+      <Button disabled onClick={handleClick}>
+        Disabled Button
+      </Button>,
+    )
 
     const button = screen.getByRole('button')
     fireEvent.click(button)
@@ -113,7 +119,11 @@ describe('Button', () => {
 
   it('prevents click when loading', () => {
     const handleClick = vi.fn()
-    render(<Button loading onClick={handleClick}>Loading Button</Button>)
+    render(
+      <Button loading onClick={handleClick}>
+        Loading Button
+      </Button>,
+    )
 
     const button = screen.getByRole('button')
     fireEvent.click(button)
@@ -124,7 +134,7 @@ describe('Button', () => {
     render(
       <Button href="https://example.com" target="_blank">
         Link Button
-      </Button>
+      </Button>,
     )
 
     const link = screen.getByRole('link', { name: 'Link Button' })
@@ -139,7 +149,7 @@ describe('Button', () => {
     render(
       <Button onFocus={handleFocus} onBlur={handleBlur}>
         Focus Button
-      </Button>
+      </Button>,
     )
 
     const button = screen.getByRole('button')

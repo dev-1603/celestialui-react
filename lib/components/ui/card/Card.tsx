@@ -38,7 +38,7 @@ export const Card: React.FC<ExtendedCardProps> = ({
 }) => {
   const { componentClasses, componentStyles } = useComponentTheme('card', {
     variant,
-    disabled
+    disabled,
   })
 
   // State
@@ -65,13 +65,23 @@ export const Card: React.FC<ExtendedCardProps> = ({
     if (className) classes.push(className)
 
     return classes.join(' ')
-  }, [componentClasses, variant, elevation, hoverable, clickable, interactive, disabled, isHovered, className])
+  }, [
+    componentClasses,
+    variant,
+    elevation,
+    hoverable,
+    clickable,
+    interactive,
+    disabled,
+    isHovered,
+    className,
+  ])
 
   // Computed styles
   const cardStyles = useMemo(() => {
     return {
       ...componentStyles,
-      ...style
+      ...style,
     }
   }, [componentStyles, style])
 
@@ -112,20 +122,12 @@ export const Card: React.FC<ExtendedCardProps> = ({
               {subtitle && <p className="cui-card__subtitle">{subtitle}</p>}
             </div>
           )}
-          {actions && (
-            <div className="cui-card__actions">
-              {actions}
-            </div>
-          )}
+          {actions && <div className="cui-card__actions">{actions}</div>}
         </div>
       )}
 
       {/* Media */}
-      {media && (
-        <div className="cui-card__media">
-          {media}
-        </div>
-      )}
+      {media && <div className="cui-card__media">{media}</div>}
 
       {/* Content */}
       {children && (
@@ -135,11 +137,7 @@ export const Card: React.FC<ExtendedCardProps> = ({
       )}
 
       {/* Footer */}
-      {footer && (
-        <div className="cui-card__footer">
-          {footer}
-        </div>
-      )}
+      {footer && <div className="cui-card__footer">{footer}</div>}
     </Component>
   )
 }

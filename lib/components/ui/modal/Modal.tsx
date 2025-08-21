@@ -107,11 +107,7 @@ export const Modal: React.FC<ExtendedModalProps> = ({
   if (!isOpen) return null
 
   const modalContent = (
-    <div
-      className={overlayClasses}
-      style={overlayStyles}
-      onClick={handleOverlayClick}
-    >
+    <div className={overlayClasses} style={overlayStyles} onClick={handleOverlayClick}>
       <div
         className={modalClasses}
         style={modalStyles}
@@ -123,9 +119,12 @@ export const Modal: React.FC<ExtendedModalProps> = ({
         {/* Header */}
         {(header || title || closable) && (
           <div className="cui-modal__header">
-            {header || (
-              title && <h2 id="cui-modal-title" className="cui-modal__title">{title}</h2>
-            )}
+            {header ||
+              (title && (
+                <h2 id="cui-modal-title" className="cui-modal__title">
+                  {title}
+                </h2>
+              ))}
 
             {closable && (
               <button
@@ -146,11 +145,7 @@ export const Modal: React.FC<ExtendedModalProps> = ({
         </div>
 
         {/* Footer */}
-        {footer && (
-          <div className="cui-modal__footer">
-            {footer}
-          </div>
-        )}
+        {footer && <div className="cui-modal__footer">{footer}</div>}
       </div>
     </div>
   )

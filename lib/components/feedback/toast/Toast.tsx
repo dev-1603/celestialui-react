@@ -16,25 +16,33 @@ export const Toast: React.FC<ToastProps> = ({
   type,
   persistent: _persistent,
   action,
-  onClose
+  onClose,
 }) => {
   const getIcon = () => {
     switch (type) {
-      case 'success': return 'check-circle'
-      case 'error': return 'exclamation-circle'
-      case 'warning': return 'exclamation-triangle'
+      case 'success':
+        return 'check-circle'
+      case 'error':
+        return 'exclamation-circle'
+      case 'warning':
+        return 'exclamation-triangle'
       case 'info':
-      default: return 'info-circle'
+      default:
+        return 'info-circle'
     }
   }
 
   const getIconColor = () => {
     switch (type) {
-      case 'success': return 'var(--cui-color-success-500)'
-      case 'error': return 'var(--cui-color-error-500)'
-      case 'warning': return 'var(--cui-color-warning-500)'
+      case 'success':
+        return 'var(--cui-color-success-500)'
+      case 'error':
+        return 'var(--cui-color-error-500)'
+      case 'warning':
+        return 'var(--cui-color-warning-500)'
       case 'info':
-      default: return 'var(--cui-color-primary-500)'
+      default:
+        return 'var(--cui-color-primary-500)'
     }
   }
 
@@ -50,19 +58,12 @@ export const Toast: React.FC<ToastProps> = ({
       </div>
 
       {action && (
-        <button
-          className="cui-toast__action"
-          onClick={action.handler}
-        >
+        <button className="cui-toast__action" onClick={action.handler}>
           {action.label}
         </button>
       )}
 
-      <button
-        className="cui-toast__close"
-        onClick={onClose}
-        aria-label="Close notification"
-      >
+      <button className="cui-toast__close" onClick={onClose} aria-label="Close notification">
         <Icon name="times" />
       </button>
     </div>

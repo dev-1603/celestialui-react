@@ -1,12 +1,14 @@
 import { useState, useEffect, useMemo, useCallback } from 'react'
 import type { ThemeConfig, ThemeTokens, CelestialUIOptions } from '../types'
 import { getThemeTokens, generateCSSVariables, defaultTokens } from '../themes'
+import { applyTheme } from '../../src/utils/designSystemGenerator'
 
 // Global theme state - using a simple module-level state for now
 let globalTheme: ThemeConfig = {
   framework: 'tailwind',
   mode: 'light',
-  tokens: defaultTokens
+  tokens: defaultTokens,
+  themeId: 'corporate-midnight', // Default theme
 }
 
 let isDarkMode = false
@@ -14,7 +16,7 @@ const subscribers = new Set<() => void>()
 
 // Notify all subscribers about theme changes
 const notifySubscribers = () => {
-  subscribers.forEach(callback => callback())
+  subscribers.forEach((callback) => callback())
 }
 
 export function useTheme(_options?: CelestialUIOptions) {
@@ -41,7 +43,7 @@ export function useTheme(_options?: CelestialUIOptions) {
     isDarkMode = !isDarkMode
     globalTheme = {
       ...globalTheme,
-      mode: isDarkMode ? 'dark' : 'light'
+      mode: isDarkMode ? 'dark' : 'light',
     }
     updateTheme(globalTheme)
     notifySubscribers()
@@ -50,7 +52,7 @@ export function useTheme(_options?: CelestialUIOptions) {
   const setTheme = useCallback((theme: Partial<ThemeConfig>) => {
     globalTheme = {
       ...globalTheme,
-      ...theme
+      ...theme,
     }
     isDarkMode = globalTheme.mode === 'dark'
     updateTheme(globalTheme)
@@ -64,59 +66,79 @@ export function useTheme(_options?: CelestialUIOptions) {
       isDarkMode = prefersDark
       globalTheme = {
         ...globalTheme,
-        mode: prefersDark ? 'dark' : 'light'
+        mode: prefersDark ? 'dark' : 'light',
       }
     } else {
       isDarkMode = mode === 'dark'
       globalTheme = {
         ...globalTheme,
-        mode
+        mode,
       }
     }
     updateTheme(globalTheme)
     notifySubscribers()
   }, [])
 
-  // Apply theme to DOM
+    // Apply theme to DOM
   const updateTheme = useCallback((theme: ThemeConfig) => {
-    const root = document.documentElement
+    // Use the new design system generator if themeId is provided
+    if (theme.themeId && theme.mode !== 'auto') {
+      applyTheme(theme.themeId, theme.mode)
+    } else {
+      // Fallback to default theme tokens
+      const root = document.documentElement
 
-    // Remove existing theme classes
-    root.classList.remove('cui-light', 'cui-dark', 'cui-tailwind', 'cui-scss', 'cui-material', 'cui-css')
+      // Remove existing theme classes
+      root.classList.remove(
+        'cui-light',
+        'cui-dark',
+        'cui-tailwind',
+        'cui-scss',
+        'cui-material',
+        'cui-css',
+      )
 
-    // Add new theme classes
-    root.classList.add(`cui-${theme.mode}`)
-    root.classList.add(`cui-${theme.framework}`)
+      // Add new theme classes
+      root.classList.add(`cui-${theme.mode}`)
+      root.classList.add(`cui-${theme.framework}`)
 
-    // Apply CSS variables
-    const vars = generateCSSVariables(getThemeTokens(theme))
-    Object.entries(vars).forEach(([property, value]) => {
-      root.style.setProperty(property, value as string)
-    })
+      const vars = generateCSSVariables(getThemeTokens(theme))
+      Object.entries(vars).forEach(([property, value]) => {
+        root.style.setProperty(property, value as string)
+      })
 
-    // Emit theme change event
-    window.dispatchEvent(new CustomEvent('cui-theme-change', {
-      detail: { theme, tokens: getThemeTokens(theme) }
-    }))
+      // Emit theme change event
+      window.dispatchEvent(
+        new CustomEvent('cui-theme-change', {
+          detail: { theme, tokens: getThemeTokens(theme) },
+        }),
+      )
+    }
   }, [])
 
   // Get color utility
-  const getColor = useCallback((path: string): string => {
-    const keys = path.split('.')
-    let value: any = tokens.colors
+  const getColor = useCallback(
+    (path: string): string => {
+      const keys = path.split('.')
+      let value: any = tokens.colors
 
-    for (const key of keys) {
-      value = value?.[key]
-    }
+      for (const key of keys) {
+        value = value?.[key]
+      }
 
-    return value || '#000000'
-  }, [tokens])
+      return value || '#000000'
+    },
+    [tokens],
+  )
 
   // Get token utility
-  const getToken = useCallback((category: keyof ThemeTokens, key: string): string => {
-    const categoryTokens = tokens[category] as Record<string, any>
-    return categoryTokens?.[key] || ''
-  }, [tokens])
+  const getToken = useCallback(
+    (category: keyof ThemeTokens, key: string): string => {
+      const categoryTokens = tokens[category] as Record<string, any>
+      return categoryTokens?.[key] || ''
+    },
+    [tokens],
+  )
 
   // Responsive utilities
   const getBreakpoint = useCallback((size: 'xs' | 'sm' | 'md' | 'lg' | 'xl'): string => {
@@ -125,7 +147,7 @@ export function useTheme(_options?: CelestialUIOptions) {
       sm: '640px',
       md: '768px',
       lg: '1024px',
-      xl: '1280px'
+      xl: '1280px',
     }
     return breakpoints[size]
   }, [])
@@ -139,7 +161,7 @@ export function useTheme(_options?: CelestialUIOptions) {
           isDarkMode = e.matches
           globalTheme = {
             ...globalTheme,
-            mode: e.matches ? 'dark' : 'light'
+            mode: e.matches ? 'dark' : 'light',
           }
           updateTheme(globalTheme)
           notifySubscribers()
@@ -153,7 +175,11 @@ export function useTheme(_options?: CelestialUIOptions) {
 
   // Initialize theme on first use
   useEffect(() => {
-    if (typeof window !== 'undefined' && !document.documentElement.classList.contains('cui-light') && !document.documentElement.classList.contains('cui-dark')) {
+    if (
+      typeof window !== 'undefined' &&
+      !document.documentElement.classList.contains('cui-light') &&
+      !document.documentElement.classList.contains('cui-dark')
+    ) {
       updateTheme(globalTheme)
     }
   }, [updateTheme])
@@ -172,7 +198,7 @@ export function useTheme(_options?: CelestialUIOptions) {
     updateTheme,
     getColor,
     getToken,
-    getBreakpoint
+    getBreakpoint,
   }
 }
 
@@ -219,6 +245,6 @@ export function useComponentTheme(componentName: string, props: any = {}) {
     componentClasses,
     componentStyles,
     getColor,
-    getToken
+    getToken,
   }
 }

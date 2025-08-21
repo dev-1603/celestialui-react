@@ -11,7 +11,7 @@ interface ToastContainerProps {
 
 export const ToastContainer: React.FC<ToastContainerProps> = ({
   position = 'top-right',
-  zIndex = 9999
+  zIndex = 9999,
 }) => {
   const { toasts, removeToast } = useToast()
 
@@ -20,22 +20,15 @@ export const ToastContainer: React.FC<ToastContainerProps> = ({
   }
 
   const containerStyle = {
-    zIndex
+    zIndex,
   }
 
   if (toasts.length === 0) return null
 
   const content = (
-    <div
-      className={`cui-toast-container ${getPositionClass()}`}
-      style={containerStyle}
-    >
+    <div className={`cui-toast-container ${getPositionClass()}`} style={containerStyle}>
       {toasts.map((toast) => (
-        <Toast
-          key={toast.id}
-          {...toast}
-          onClose={() => removeToast(toast.id)}
-        />
+        <Toast key={toast.id} {...toast} onClose={() => removeToast(toast.id)} />
       ))}
     </div>
   )

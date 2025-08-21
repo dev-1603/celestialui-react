@@ -1,102 +1,34 @@
 import type { ThemeConfig, ThemeTokens } from '../types'
+import {
+  colorConfig,
+  lightModeColors,
+  darkModeColors,
+  generateColorCSSVariables,
+  createCustomColorTheme,
+  type ColorPalette
+} from './colors'
 
-// Default theme tokens
+// ============================================================================
+// COMPLETE THEME TOKENS INCLUDING NEW COLOR SYSTEM
+// ============================================================================
+
 export const defaultTokens: ThemeTokens = {
   colors: {
-    primary: {
-      50: '#f0f9ff',
-      100: '#e0f2fe',
-      200: '#bae6fd',
-      300: '#7dd3fc',
-      400: '#38bdf8',
-      500: '#0ea5e9',
-      600: '#0284c7',
-      700: '#0369a1',
-      800: '#075985',
-      900: '#0c4a6e'
-    },
-    secondary: {
-      50: '#f8fafc',
-      100: '#f1f5f9',
-      200: '#e2e8f0',
-      300: '#cbd5e1',
-      400: '#94a3b8',
-      500: '#64748b',
-      600: '#475569',
-      700: '#334155',
-      800: '#1e293b',
-      900: '#0f172a'
-    },
-    success: {
-      50: '#f0fdf4',
-      100: '#dcfce7',
-      200: '#bbf7d0',
-      300: '#86efac',
-      400: '#4ade80',
-      500: '#22c55e',
-      600: '#16a34a',
-      700: '#15803d',
-      800: '#166534',
-      900: '#14532d'
-    },
-    warning: {
-      50: '#fffbeb',
-      100: '#fef3c7',
-      200: '#fde68a',
-      300: '#fcd34d',
-      400: '#fbbf24',
-      500: '#f59e0b',
-      600: '#d97706',
-      700: '#b45309',
-      800: '#92400e',
-      900: '#78350f'
-    },
-    error: {
-      50: '#fef2f2',
-      100: '#fee2e2',
-      200: '#fecaca',
-      300: '#fca5a5',
-      400: '#f87171',
-      500: '#ef4444',
-      600: '#dc2626',
-      700: '#b91c1c',
-      800: '#991b1b',
-      900: '#7f1d1d'
-    },
-    neutral: {
-      50: '#fafafa',
-      100: '#f5f5f5',
-      200: '#e5e5e5',
-      300: '#d4d4d4',
-      400: '#a3a3a3',
-      500: '#737373',
-      600: '#525252',
-      700: '#404040',
-      800: '#262626',
-      900: '#171717'
-    },
-    background: {
-      primary: '#ffffff',
-      secondary: '#f8fafc',
-      tertiary: '#f1f5f9'
-    },
-    surface: {
-      primary: '#ffffff',
-      secondary: '#f8fafc',
-      raised: '#ffffff'
-    },
-    text: {
-      primary: '#0f172a',
-      secondary: '#475569',
-      tertiary: '#64748b',
-      disabled: '#94a3b8',
-      inverse: '#ffffff'
-    },
-    border: {
-      primary: '#e2e8f0',
-      secondary: '#cbd5e1',
-      focus: '#0ea5e9'
-    }
+    // Brand palettes
+    primary: colorConfig.primary,
+    secondary: colorConfig.secondary,
+    neutral: colorConfig.neutral,
+
+    // Status palettes
+    success: colorConfig.success,
+    warning: colorConfig.warning,
+    error: colorConfig.error,
+    info: colorConfig.info,
+
+    // Semantic tokens (light mode)
+    background: lightModeColors.background,
+    text: lightModeColors.text,
+    border: lightModeColors.border,
   },
   spacing: {
     0: '0',
@@ -116,12 +48,13 @@ export const defaultTokens: ThemeTokens = {
     40: '10rem',
     48: '12rem',
     56: '14rem',
-    64: '16rem'
+    64: '16rem',
   },
   typography: {
     fontFamily: {
-      sans: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-      mono: 'Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'
+      sans: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+      mono: '"SFMono-Regular", Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+      serif: 'Georgia, "Times New Roman", serif',
     },
     fontSize: {
       xs: '0.75rem',
@@ -132,7 +65,8 @@ export const defaultTokens: ThemeTokens = {
       '2xl': '1.5rem',
       '3xl': '1.875rem',
       '4xl': '2.25rem',
-      '5xl': '3rem'
+      '5xl': '3rem',
+      '6xl': '3.75rem',
     },
     fontWeight: {
       thin: '100',
@@ -142,84 +76,85 @@ export const defaultTokens: ThemeTokens = {
       semibold: '600',
       bold: '700',
       extrabold: '800',
-      black: '900'
+      black: '900',
     },
     lineHeight: {
       tight: '1.25',
       snug: '1.375',
       normal: '1.5',
       relaxed: '1.625',
-      loose: '2'
-    }
+      loose: '2',
+    },
   },
   borderRadius: {
     none: '0',
-    sm: '0.125rem',
-    base: '0.25rem',
-    md: '0.375rem',
-    lg: '0.5rem',
-    xl: '0.75rem',
-    '2xl': '1rem',
-    '3xl': '1.5rem',
-    full: '9999px'
+    xs: '0.125rem',
+    sm: '0.25rem',
+    base: '0.375rem',
+    md: '0.5rem',
+    lg: '0.75rem',
+    xl: '1rem',
+    '2xl': '1.5rem',
+    '3xl': '2rem',
+    full: '9999px',
   },
   shadows: {
-    sm: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
-    base: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
-    md: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
-    lg: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
-    xl: '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
-    '2xl': '0 25px 50px -12px rgb(0 0 0 / 0.25)',
-    inner: 'inset 0 2px 4px 0 rgb(0 0 0 / 0.05)'
+    xs: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
+    sm: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
+    base: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
+    md: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
+    lg: '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
+    xl: '0 25px 50px -12px rgb(0 0 0 / 0.25)',
+    '2xl': '0 50px 100px -25px rgb(0 0 0 / 0.25)',
+    inner: 'inset 0 2px 4px 0 rgb(0 0 0 / 0.05)',
   },
   transitions: {
-    fast: '150ms ease',
-    base: '200ms ease',
-    slow: '300ms ease',
-    slower: '500ms ease'
-  }
+    fast: '150ms cubic-bezier(0.4, 0, 0.2, 1)',
+    base: '200ms cubic-bezier(0.4, 0, 0.2, 1)',
+    slow: '300ms cubic-bezier(0.4, 0, 0.2, 1)',
+    slower: '500ms cubic-bezier(0.4, 0, 0.2, 1)',
+  },
 }
 
-// Dark theme tokens
+// ============================================================================
+// DARK MODE TOKENS
+// ============================================================================
+
 export const darkTokens: Partial<ThemeTokens> = {
   colors: {
     ...defaultTokens.colors,
-    background: {
-      primary: '#0f172a',
-      secondary: '#1e293b',
-      tertiary: '#334155'
-    },
-    surface: {
-      primary: '#1e293b',
-      secondary: '#334155',
-      raised: '#475569'
-    },
-    text: {
-      primary: '#f8fafc',
-      secondary: '#cbd5e1',
-      tertiary: '#94a3b8',
-      disabled: '#64748b',
-      inverse: '#0f172a'
-    },
-    border: {
-      primary: '#334155',
-      secondary: '#475569',
-      focus: '#38bdf8'
-    }
-  }
+    // Override with dark mode semantic colors
+    background: darkModeColors.background,
+    text: darkModeColors.text,
+    border: darkModeColors.border,
+  },
+  // Adjust shadows for dark mode
+  shadows: {
+    ...defaultTokens.shadows,
+    xs: '0 1px 2px 0 rgb(0 0 0 / 0.25)',
+    sm: '0 1px 3px 0 rgb(0 0 0 / 0.3), 0 1px 2px -1px rgb(0 0 0 / 0.3)',
+    base: '0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3)',
+    md: '0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3)',
+    lg: '0 20px 25px -5px rgb(0 0 0 / 0.3), 0 8px 10px -6px rgb(0 0 0 / 0.3)',
+    xl: '0 25px 50px -12px rgb(0 0 0 / 0.4)',
+    '2xl': '0 50px 100px -25px rgb(0 0 0 / 0.5)',
+  },
 }
 
-// Theme configurations for different frameworks
+// ============================================================================
+// FRAMEWORK-SPECIFIC THEMES
+// ============================================================================
+
 export const tailwindTheme: ThemeConfig = {
   framework: 'tailwind',
   mode: 'light',
-  tokens: defaultTokens
+  tokens: defaultTokens,
 }
 
 export const scssTheme: ThemeConfig = {
   framework: 'scss',
   mode: 'light',
-  tokens: defaultTokens
+  tokens: defaultTokens,
 }
 
 export const materialTheme: ThemeConfig = {
@@ -229,20 +164,29 @@ export const materialTheme: ThemeConfig = {
     ...defaultTokens,
     colors: {
       ...defaultTokens.colors,
+      // Material Design primary color
       primary: {
-        50: '#e8f5e8',
-        100: '#c8e6c9',
-        200: '#a5d6a7',
-        300: '#81c784',
-        400: '#66bb6a',
-        500: '#4caf50',
-        600: '#43a047',
-        700: '#388e3c',
-        800: '#2e7d32',
-        900: '#1b5e20'
-      }
-    }
-  }
+        25: '#e8f5e8',
+        50: '#c8e6c9',
+        100: '#a5d6a7',
+        200: '#81c784',
+        300: '#66bb6a',
+        400: '#4caf50', // Material Green
+        500: '#43a047',
+        600: '#388e3c',
+        700: '#2e7d32',
+        800: '#1b5e20',
+        900: '#0d4715',
+        950: '#0a2e0f',
+      },
+    },
+    borderRadius: {
+      ...defaultTokens.borderRadius,
+      base: '0.25rem',
+      md: '0.5rem',
+      lg: '0.75rem',
+    },
+  },
 }
 
 export const cssTheme: ThemeConfig = {
@@ -250,52 +194,179 @@ export const cssTheme: ThemeConfig = {
   mode: 'light',
   tokens: defaultTokens,
   customProperties: {
-    '--cui-primary': '#0ea5e9',
-    '--cui-secondary': '#64748b',
-    '--cui-success': '#22c55e',
-    '--cui-warning': '#f59e0b',
-    '--cui-error': '#ef4444',
-    '--cui-background': '#ffffff',
-    '--cui-surface': '#ffffff',
-    '--cui-text': '#0f172a',
-    '--cui-border': '#e2e8f0'
-  }
+    '--cui-primary': colorConfig.primary[400],
+    '--cui-secondary': colorConfig.secondary[400],
+    '--cui-success': colorConfig.success[400],
+    '--cui-warning': colorConfig.warning[400],
+    '--cui-error': colorConfig.error[400],
+    '--cui-background': lightModeColors.background.base,
+    '--cui-surface': lightModeColors.background.surface,
+    '--cui-text': lightModeColors.text.primary,
+    '--cui-border': lightModeColors.border.base,
+  },
 }
 
-// Theme utilities
-export function createTheme(config: Partial<ThemeConfig> = {}): ThemeConfig {
+// ============================================================================
+// PRESET COLOR THEMES
+// ============================================================================
+
+/**
+ * Blue Ocean Theme - Cool, professional blue tones
+ */
+export const blueOceanTheme = createTheme({
+  name: 'Blue Ocean',
+  colors: createCustomColorTheme({
+    primary: {
+      25: '#f0f9ff',
+      50: '#e0f2fe',
+      100: '#bae6fd',
+      200: '#7dd3fc',
+      300: '#38bdf8',
+      400: '#0ea5e9',
+      500: '#0284c7',
+      600: '#0369a1',
+      700: '#075985',
+      800: '#0c4a6e',
+      900: '#082f49',
+      950: '#0c1821',
+    }
+  })
+})
+
+/**
+ * Forest Green Theme - Nature-inspired green palette
+ */
+export const forestGreenTheme = createTheme({
+  name: 'Forest Green',
+  colors: createCustomColorTheme({
+    primary: {
+      25: '#f0fdf4',
+      50: '#dcfce7',
+      100: '#bbf7d0',
+      200: '#86efac',
+      300: '#4ade80',
+      400: '#22c55e',
+      500: '#16a34a',
+      600: '#15803d',
+      700: '#166534',
+      800: '#14532d',
+      900: '#052e16',
+      950: '#021c0e',
+    }
+  })
+})
+
+/**
+ * Sunset Orange Theme - Warm, energetic orange tones
+ */
+export const sunsetOrangeTheme = createTheme({
+  name: 'Sunset Orange',
+  colors: createCustomColorTheme({
+    primary: {
+      25: '#fff7ed',
+      50: '#ffedd5',
+      100: '#fed7aa',
+      200: '#fdba74',
+      300: '#fb923c',
+      400: '#f97316',
+      500: '#ea580c',
+      600: '#dc2626',
+      700: '#b91c1c',
+      800: '#991b1b',
+      900: '#7c2d12',
+      950: '#431407',
+    }
+  })
+})
+
+/**
+ * Purple Dreams Theme - Creative, modern purple palette
+ */
+export const purpleDreamsTheme = createTheme({
+  name: 'Purple Dreams',
+  colors: createCustomColorTheme({
+    primary: {
+      25: '#faf5ff',
+      50: '#f3e8ff',
+      100: '#e9d5ff',
+      200: '#d8b4fe',
+      300: '#c084fc',
+      400: '#a855f7',
+      500: '#9333ea',
+      600: '#7c3aed',
+      700: '#6d28d9',
+      800: '#5b21b6',
+      900: '#4c1d95',
+      950: '#2e1065',
+    }
+  })
+})
+
+// ============================================================================
+// THEME UTILITIES
+// ============================================================================
+
+/**
+ * Create a complete theme configuration
+ */
+export function createTheme(config: {
+  name?: string
+  framework?: 'tailwind' | 'scss' | 'css' | 'material'
+  mode?: 'light' | 'dark' | 'auto'
+  colors?: ReturnType<typeof createCustomColorTheme>
+  tokens?: Partial<ThemeTokens>
+  customProperties?: Record<string, string>
+}): ThemeConfig {
+  const baseTokens = config.colors ? {
+    ...defaultTokens,
+    colors: {
+      ...defaultTokens.colors,
+      ...config.colors,
+    }
+  } : defaultTokens
+
   return {
     framework: config.framework || 'tailwind',
     mode: config.mode || 'light',
-    tokens: config.tokens || defaultTokens,
-    ...config
+    tokens: {
+      ...baseTokens,
+      ...config.tokens,
+    },
+    customProperties: config.customProperties,
   }
 }
 
+/**
+ * Get theme tokens with dark mode support
+ */
 export function getThemeTokens(theme: ThemeConfig): ThemeTokens {
   if (theme.mode === 'dark') {
     return {
       ...theme.tokens,
       colors: {
         ...theme.tokens.colors,
-        ...darkTokens.colors
-      }
+        background: darkModeColors.background,
+        text: darkModeColors.text,
+        border: darkModeColors.border,
+      },
+      shadows: {
+        ...theme.tokens.shadows,
+        ...darkTokens.shadows,
+      },
     } as ThemeTokens
   }
   return theme.tokens as ThemeTokens
 }
 
-export function generateCSSVariables(tokens: ThemeTokens): Record<string, string> {
+/**
+ * Enhanced CSS variable generation with new color system
+ */
+export function generateCSSVariables(tokens: ThemeTokens, mode: 'light' | 'dark' = 'light'): Record<string, string> {
   const cssVars: Record<string, string> = {}
 
-  // Generate color variables
-  Object.entries(tokens.colors).forEach(([category, colors]) => {
-    if (typeof colors === 'object') {
-      Object.entries(colors).forEach(([shade, value]) => {
-        cssVars[`--cui-color-${category}-${shade}`] = value
-      })
-    }
-  })
+  // Generate color variables using the new color system
+  const colorVars = generateColorCSSVariables(mode)
+  Object.assign(cssVars, colorVars)
 
   // Generate spacing variables
   Object.entries(tokens.spacing).forEach(([key, value]) => {
@@ -305,22 +376,102 @@ export function generateCSSVariables(tokens: ThemeTokens): Record<string, string
   // Generate typography variables
   Object.entries(tokens.typography).forEach(([category, values]) => {
     Object.entries(values).forEach(([key, value]) => {
-      cssVars[`--cui-${category}-${key}`] = value
+      cssVars[`--cui-${category}-${key.replace('2xl', '2xl').replace('3xl', '3xl').replace('4xl', '4xl').replace('5xl', '5xl').replace('6xl', '6xl')}`] = value
     })
   })
 
-  // Generate other variables
+  // Generate border radius variables
   Object.entries(tokens.borderRadius).forEach(([key, value]) => {
-    cssVars[`--cui-radius-${key}`] = value
+    cssVars[`--cui-radius-${key.replace('2xl', '2xl').replace('3xl', '3xl')}`] = value
   })
 
+  // Generate shadow variables
   Object.entries(tokens.shadows).forEach(([key, value]) => {
-    cssVars[`--cui-shadow-${key}`] = value
+    cssVars[`--cui-shadow-${key.replace('2xl', '2xl')}`] = value
   })
 
+  // Generate transition variables
   Object.entries(tokens.transitions).forEach(([key, value]) => {
     cssVars[`--cui-transition-${key}`] = value
   })
 
   return cssVars
+}
+
+/**
+ * Theme validation utility
+ */
+export function validateTheme(theme: ThemeConfig): boolean {
+  try {
+    // Basic validation
+    if (!theme.framework || !theme.mode || !theme.tokens) {
+      return false
+    }
+
+    // Validate required color palettes
+    const requiredColors = ['primary', 'secondary', 'neutral', 'success', 'warning', 'error']
+    for (const colorKey of requiredColors) {
+      if (!theme.tokens.colors[colorKey as keyof typeof theme.tokens.colors]) {
+        return false
+      }
+    }
+
+    return true
+  } catch {
+    return false
+  }
+}
+
+/**
+ * Get accessible color pair (foreground/background)
+ */
+export function getAccessibleColorPair(backgroundColor: string, theme: ThemeConfig) {
+  // Simple heuristic - in production you'd use proper contrast calculation
+  const tokens = getThemeTokens(theme)
+  const isLight = backgroundColor.includes('50') || backgroundColor.includes('100') || backgroundColor.includes('200')
+
+  return {
+    background: backgroundColor,
+    foreground: isLight ? tokens.colors.text.primary : tokens.colors.text.inverse,
+    border: isLight ? tokens.colors.border.base : tokens.colors.border.strong,
+  }
+}
+
+// ============================================================================
+// EXPORTS
+// ============================================================================
+
+// Re-export color system
+export {
+  colorConfig,
+  lightModeColors,
+  darkModeColors,
+  generateColorCSSVariables,
+  createCustomColorTheme,
+} from './colors'
+
+// Export preset themes
+export const presetThemes = {
+  default: tailwindTheme,
+  blueOcean: blueOceanTheme,
+  forestGreen: forestGreenTheme,
+  sunsetOrange: sunsetOrangeTheme,
+  purpleDreams: purpleDreamsTheme,
+  material: materialTheme,
+  scss: scssTheme,
+  css: cssTheme,
+}
+
+// Default export
+export default {
+  defaultTokens,
+  darkTokens,
+  presetThemes,
+  utils: {
+    createTheme,
+    getThemeTokens,
+    generateCSSVariables,
+    validateTheme,
+    getAccessibleColorPair,
+  }
 }

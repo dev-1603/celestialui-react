@@ -1,156 +1,146 @@
-import { useState } from 'react'
-import { Button, Input, Card, Modal, useTheme, useToast, ToastContainer } from '../lib/main'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Layout } from './components/layout/Layout'
+import { HomePage } from './pages/HomePage'
+import { PlaygroundPage } from './pages/PlaygroundPage'
+import { ComponentDocPage } from './pages/ComponentDocPage'
+import { PlaceholderPage } from './pages/PlaceholderPage'
+import { ThemeProvider } from './providers/ThemeProvider'
 import '../lib/themes/base.css'
+import './styles/design-system.css'
 import './App.css'
 
 function App() {
-  const [inputValue, setInputValue] = useState('')
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const { toggleTheme, isDark } = useTheme()
-  const { success, error, info, warning } = useToast()
-
-  const handleShowToasts = () => {
-    success('Success! Operation completed successfully.')
-    error('Error! Something went wrong.')
-    warning('Warning! Please check your input.')
-    info('Info! This is an informational message.')
-  }
-
   return (
-    <div className="app">
-      <header className="app-header">
-        <h1>CelestialUI React Demo</h1>
-        <p>A comprehensive React component library</p>
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={toggleTheme}
-          rightIcon={isDark ? 'sun' : 'moon'}
-        >
-          {isDark ? 'Light Mode' : 'Dark Mode'}
-        </Button>
-      </header>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/playground" element={<PlaygroundPage />} />
 
-      <main className="app-main">
-        <section className="demo-section">
-          <Card title="Button Components" padding>
-            <div className="button-grid">
-              <Button variant="primary">Primary</Button>
-              <Button variant="secondary">Secondary</Button>
-              <Button variant="outline">Outline</Button>
-              <Button variant="ghost">Ghost</Button>
-              <Button variant="destructive">Destructive</Button>
-              <Button loading>Loading</Button>
-              <Button leftIcon="star">With Icon</Button>
-              <Button iconOnly>
-                <span>⚙️</span>
-              </Button>
-            </div>
-          </Card>
-        </section>
+          {/* Developed component routes */}
+          <Route path="/components/button" element={<ComponentDocPage />} />
+          <Route path="/components/input" element={<ComponentDocPage />} />
+          <Route path="/components/icon" element={<ComponentDocPage />} />
+          <Route path="/components/card" element={<ComponentDocPage />} />
+          <Route path="/components/modal" element={<ComponentDocPage />} />
+          <Route path="/components/toast" element={<ComponentDocPage />} />
 
-        <section className="demo-section">
-          <Card title="Input Components" padding>
-            <div className="input-grid">
-              <Input
-                label="Basic Input"
-                placeholder="Enter text..."
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-              />
-              <Input
-                label="Required Input"
-                placeholder="Required field"
-                required
-                prefixIcon="user"
-                helperText="This field is required"
-              />
-              <Input
-                label="Clearable Input"
-                placeholder="Clearable text"
-                clearable
-                suffixIcon="search"
-              />
-              <Input
-                label="Error State"
-                placeholder="Invalid input"
-                errorMessage="This field has an error"
-                value="invalid value"
-              />
-            </div>
-          </Card>
-        </section>
+          {/* Placeholder routes for undeveloped components */}
+          <Route path="/components/checkbox" element={<PlaceholderPage />} />
+          <Route path="/components/radio" element={<PlaceholderPage />} />
+          <Route path="/components/switch" element={<PlaceholderPage />} />
+          <Route path="/components/slider" element={<PlaceholderPage />} />
+          <Route path="/components/progress" element={<PlaceholderPage />} />
+          <Route path="/components/avatar" element={<PlaceholderPage />} />
+          <Route path="/components/badge" element={<PlaceholderPage />} />
+          <Route path="/components/divider" element={<PlaceholderPage />} />
+          <Route path="/components/skeleton" element={<PlaceholderPage />} />
+          <Route path="/components/spinner" element={<PlaceholderPage />} />
+          <Route path="/components/heading" element={<PlaceholderPage />} />
+          <Route path="/components/text" element={<PlaceholderPage />} />
+          <Route path="/components/code" element={<PlaceholderPage />} />
+          <Route path="/components/link" element={<PlaceholderPage />} />
+          <Route path="/components/icon-button" element={<PlaceholderPage />} />
+          <Route path="/components/kbd" element={<PlaceholderPage />} />
 
-        <section className="demo-section">
-          <Card title="Interactive Components" padding>
-            <div className="interactive-grid">
-              <Button onClick={() => setIsModalOpen(true)}>
-                Open Modal
-              </Button>
-              <Button onClick={handleShowToasts}>
-                Show Toasts
-              </Button>
-            </div>
-          </Card>
-        </section>
+          {/* Molecular Components */}
+          <Route path="/components/select" element={<PlaceholderPage />} />
+          <Route path="/components/multiselect" element={<PlaceholderPage />} />
+          <Route path="/components/textarea" element={<PlaceholderPage />} />
+          <Route path="/components/file-upload" element={<PlaceholderPage />} />
+          <Route path="/components/date-picker" element={<PlaceholderPage />} />
+          <Route path="/components/time-picker" element={<PlaceholderPage />} />
+          <Route path="/components/color-picker" element={<PlaceholderPage />} />
+          <Route path="/components/number-input" element={<PlaceholderPage />} />
+          <Route path="/components/search-input" element={<PlaceholderPage />} />
+          <Route path="/components/password-input" element={<PlaceholderPage />} />
+          <Route path="/components/pin-input" element={<PlaceholderPage />} />
+          <Route path="/components/form-field" element={<PlaceholderPage />} />
+          <Route path="/components/form-label" element={<PlaceholderPage />} />
+          <Route path="/components/form-helper-text" element={<PlaceholderPage />} />
+          <Route path="/components/form-error-message" element={<PlaceholderPage />} />
+          <Route path="/components/fieldset" element={<PlaceholderPage />} />
+          <Route path="/components/input-group" element={<PlaceholderPage />} />
+          <Route path="/components/tabs" element={<PlaceholderPage />} />
+          <Route path="/components/breadcrumb" element={<PlaceholderPage />} />
+          <Route path="/components/pagination" element={<PlaceholderPage />} />
+          <Route path="/components/steps" element={<PlaceholderPage />} />
+          <Route path="/components/menu" element={<PlaceholderPage />} />
+          <Route path="/components/context-menu" element={<PlaceholderPage />} />
+          <Route path="/components/alert" element={<PlaceholderPage />} />
+          <Route path="/components/notification" element={<PlaceholderPage />} />
+          <Route path="/components/popover" element={<PlaceholderPage />} />
+          <Route path="/components/tooltip" element={<PlaceholderPage />} />
+          <Route path="/components/dialog" element={<PlaceholderPage />} />
+          <Route path="/components/drawer" element={<PlaceholderPage />} />
+          <Route path="/components/sheet" element={<PlaceholderPage />} />
 
-        <section className="demo-section">
-          <div className="card-grid">
-            <Card
-              variant="elevated"
-              hoverable
-              title="Elevated Card"
-              subtitle="This card has elevation"
-              padding
-            >
-              <p>This is an elevated card with hover effects. It demonstrates the card component with various props.</p>
-            </Card>
+          {/* Organism Components */}
+          <Route path="/components/table" element={<PlaceholderPage />} />
+          <Route path="/components/data-table" element={<PlaceholderPage />} />
+          <Route path="/components/virtual-table" element={<PlaceholderPage />} />
+          <Route path="/components/list" element={<PlaceholderPage />} />
+          <Route path="/components/infinite-scroll" element={<PlaceholderPage />} />
+          <Route path="/components/image" element={<PlaceholderPage />} />
+          <Route path="/components/carousel" element={<PlaceholderPage />} />
+          <Route path="/components/gallery" element={<PlaceholderPage />} />
+          <Route path="/components/video-player" element={<PlaceholderPage />} />
+          <Route path="/components/container" element={<PlaceholderPage />} />
+          <Route path="/components/stack" element={<PlaceholderPage />} />
+          <Route path="/components/grid" element={<PlaceholderPage />} />
+          <Route path="/components/flex" element={<PlaceholderPage />} />
+          <Route path="/components/box" element={<PlaceholderPage />} />
+          <Route path="/components/center" element={<PlaceholderPage />} />
+          <Route path="/components/spacer" element={<PlaceholderPage />} />
+          <Route path="/components/sidebar" element={<PlaceholderPage />} />
+          <Route path="/components/header" element={<PlaceholderPage />} />
+          <Route path="/components/footer" element={<PlaceholderPage />} />
+          <Route path="/components/app-shell" element={<PlaceholderPage />} />
+          <Route path="/components/form-wizard" element={<PlaceholderPage />} />
+          <Route path="/components/form-builder" element={<PlaceholderPage />} />
+          <Route path="/components/survey" element={<PlaceholderPage />} />
+          <Route path="/components/autocomplete" element={<PlaceholderPage />} />
+          <Route path="/components/combo-box" element={<PlaceholderPage />} />
+          <Route path="/components/mention" element={<PlaceholderPage />} />
+          <Route path="/components/tag-input" element={<PlaceholderPage />} />
 
-            <Card
-              variant="outlined"
-              hoverable
-              title="Outlined Card"
-              subtitle="This card is outlined"
-              padding
-            >
-              <p>This is an outlined card that becomes interactive on hover.</p>
-            </Card>
+          {/* Template Components */}
+          <Route path="/templates/dashboard-layout" element={<PlaceholderPage />} />
+          <Route path="/templates/admin-layout" element={<PlaceholderPage />} />
+          <Route path="/templates/auth-layout" element={<PlaceholderPage />} />
+          <Route path="/templates/landing-layout" element={<PlaceholderPage />} />
+          <Route path="/templates/error-layout" element={<PlaceholderPage />} />
+          <Route path="/templates/app-bar" element={<PlaceholderPage />} />
+          <Route path="/templates/navigation-rail" element={<PlaceholderPage />} />
+          <Route path="/templates/bottom-navigation" element={<PlaceholderPage />} />
+          <Route path="/templates/side-navigation" element={<PlaceholderPage />} />
 
-            <Card
-              variant="filled"
-              clickable
-              title="Filled Card"
-              subtitle="Click me!"
-              padding
-              onClick={() => info('Card clicked!')}
-            >
-              <p>This is a filled card that can be clicked for interaction.</p>
-            </Card>
-          </div>
-        </section>
-      </main>
+          {/* Advanced Components */}
+          <Route path="/advanced/rich-text-editor" element={<PlaceholderPage />} />
+          <Route path="/advanced/code-editor" element={<PlaceholderPage />} />
+          <Route path="/advanced/markdown-editor" element={<PlaceholderPage />} />
+          <Route path="/advanced/calendar" element={<PlaceholderPage />} />
+          <Route path="/advanced/timeline" element={<PlaceholderPage />} />
+          <Route path="/advanced/kanban" element={<PlaceholderPage />} />
+          <Route path="/advanced/chart" element={<PlaceholderPage />} />
+          <Route path="/advanced/graph" element={<PlaceholderPage />} />
+          <Route path="/advanced/sparkline" element={<PlaceholderPage />} />
+          <Route path="/advanced/heatmap" element={<PlaceholderPage />} />
+          <Route path="/advanced/command" element={<PlaceholderPage />} />
+          <Route path="/advanced/spotlight" element={<PlaceholderPage />} />
+          <Route path="/advanced/tree-view" element={<PlaceholderPage />} />
+          <Route path="/advanced/file-explorer" element={<PlaceholderPage />} />
+          <Route path="/advanced/virtual-list" element={<PlaceholderPage />} />
 
-      <Modal
-        isOpen={isModalOpen}
-        title="Demo Modal"
-        onClose={() => setIsModalOpen(false)}
-        footer={
-          <div>
-            <Button variant="outline" onClick={() => setIsModalOpen(false)}>
-              Cancel
-            </Button>
-            <Button onClick={() => setIsModalOpen(false)}>
-              Confirm
-            </Button>
-          </div>
-        }
-      >
-        <p>This is a modal dialog demonstrating the Modal component from CelestialUI React.</p>
-        <p>You can close it by clicking the close button, pressing Escape, or clicking outside.</p>
-      </Modal>
-
-      <ToastContainer position="top-right" />
-    </div>
+          {/* Catch-all for any other component routes */}
+          <Route path="/components/:componentName" element={<PlaceholderPage />} />
+          <Route path="/templates/:componentName" element={<PlaceholderPage />} />
+          <Route path="/advanced/:componentName" element={<PlaceholderPage />} />
+        </Routes>
+        </Layout>
+      </BrowserRouter>
+    </ThemeProvider>
   )
 }
 

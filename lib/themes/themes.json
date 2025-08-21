@@ -1,0 +1,470 @@
+{
+  "themes": {
+    "corporate-midnight": {
+      "name": "Corporate Midnight",
+      "mode": "both",
+      "description": "Enterprise-ready blues with neutral surfaces and high readability",
+      "category": "corporate",
+      "featured": true,
+      "dark": {
+        "primary": "#1565c0",
+        "secondary": "#42a5f5",
+        "accent": "#03a9f4",
+        "background": "#121212",
+        "surface": "#1e1e1e",
+        "text": "#e0e0e0"
+      },
+      "light": {
+        "primary": "#1976d2",
+        "secondary": "#42a5f5",
+        "accent": "#0288d1",
+        "background": "#ffffff",
+        "surface": "#f5f7fa",
+        "text": "#111827"
+      }
+    },
+    "executive-slate": {
+      "name": "Executive Slate",
+      "mode": "both",
+      "description": "Serious slate neutrals with restrained blue accents",
+      "category": "corporate",
+      "featured": true,
+      "dark": {
+        "primary": "#5b7c99",
+        "secondary": "#94a3b8",
+        "accent": "#60a5fa",
+        "background": "#0f1419",
+        "surface": "#171b22",
+        "text": "#e5e7eb"
+      },
+      "light": {
+        "primary": "#3b556b",
+        "secondary": "#64748b",
+        "accent": "#2563eb",
+        "background": "#ffffff",
+        "surface": "#f3f4f6",
+        "text": "#1f2937"
+      }
+    },
+    "ocean-business": {
+      "name": "Ocean Business",
+      "mode": "both",
+      "description": "Trustworthy blue–teal system optimized for data and finance",
+      "category": "business",
+      "featured": true,
+      "dark": {
+        "primary": "#1f7aa8",
+        "secondary": "#00acc1",
+        "accent": "#4fc3f7",
+        "background": "#0b1220",
+        "surface": "#132033",
+        "text": "#e6f3ff"
+      },
+      "light": {
+        "primary": "#0277bd",
+        "secondary": "#00acc1",
+        "accent": "#4fc3f7",
+        "background": "#eaf6ff",
+        "surface": "#ffffff",
+        "text": "#0b3555"
+      }
+    },
+    "minimal-modern": {
+      "name": "Minimal Modern",
+      "mode": "both",
+      "description": "Clean neutrals with soft steel accents; minimal distraction",
+      "category": "minimal",
+      "featured": true,
+      "dark": {
+        "primary": "#9aa5b1",
+        "secondary": "#6b7280",
+        "accent": "#7aa2c2",
+        "background": "#111315",
+        "surface": "#181b1f",
+        "text": "#e5e7eb"
+      },
+      "light": {
+        "primary": "#78909c",
+        "secondary": "#cfd8dc",
+        "accent": "#607d8b",
+        "background": "#ffffff",
+        "surface": "#f5f5f5",
+        "text": "#37474f"
+      }
+    },
+    "professional-neutral": {
+      "name": "Professional Neutral",
+      "mode": "both",
+      "description": "Balanced neutrals with signal colors for status and alerts",
+      "category": "professional",
+      "featured": true,
+      "dark": {
+        "primary": "#3b86d1",
+        "secondary": "#6c7293",
+        "accent": "#21bf06",
+        "background": "#14161a",
+        "surface": "#1a1d23",
+        "text": "#e6e8ee"
+      },
+      "light": {
+        "primary": "#3b86d1",
+        "secondary": "#6c7293",
+        "accent": "#21bf06",
+        "background": "#f8f9fa",
+        "surface": "#ffffff",
+        "text": "#212529"
+      }
+    },
+    "data-indigo": {
+      "name": "Data Indigo",
+      "mode": "both",
+      "description": "Indigo-centric system with high-contrast accents for charts",
+      "category": "analytics",
+      "featured": true,
+      "dark": {
+        "primary": "#4f46e5",
+        "secondary": "#818cf8",
+        "accent": "#22d3ee",
+        "background": "#0b0e1a",
+        "surface": "#151834",
+        "text": "#eef2ff"
+      },
+      "light": {
+        "primary": "#4338ca",
+        "secondary": "#6366f1",
+        "accent": "#0891b2",
+        "background": "#f8fafc",
+        "surface": "#ffffff",
+        "text": "#111827"
+      }
+    },
+    "neon-edge": {
+      "name": "Neon Edge",
+      "mode": "both",
+      "description": "Futuristic, high-contrast neon accents on dark UI",
+      "category": "creative",
+      "featured": true,
+      "dark": {
+        "primary": "#1e90ff",
+        "secondary": "#00ff85",
+        "accent": "#ff0099",
+        "background": "#0d0d0d",
+        "surface": "#151515",
+        "text": "#ffffff"
+      },
+      "light": {
+        "primary": "#0ea5e9",
+        "secondary": "#10b981",
+        "accent": "#ec4899",
+        "background": "#f1f5f9",
+        "surface": "#ffffff",
+        "text": "#0f172a"
+      }
+    },
+    "deep-jewel": {
+      "name": "Deep Jewel",
+      "mode": "both",
+      "description": "Luxurious jewel tones with refined contrast",
+      "category": "luxury",
+      "featured": true,
+      "dark": {
+        "primary": "#004d61",
+        "secondary": "#822659",
+        "accent": "#3e5641",
+        "background": "#1a1a1a",
+        "surface": "#232323",
+        "text": "#f0f0f0"
+      },
+      "light": {
+        "primary": "#2c7a7b",
+        "secondary": "#a83c6b",
+        "accent": "#4a785f",
+        "background": "#fafafa",
+        "surface": "#ffffff",
+        "text": "#2d2d2d"
+      }
+    },
+    "cappuccino-pro": {
+      "name": "Cappuccino Pro",
+      "mode": "both",
+      "description": "Warm approachable neutrals for human‑centric apps",
+      "category": "warm",
+      "featured": true,
+      "dark": {
+        "primary": "#b08968",
+        "secondary": "#7f5539",
+        "accent": "#e6ccb2",
+        "background": "#1b1714",
+        "surface": "#241f1b",
+        "text": "#efe7e2"
+      },
+      "light": {
+        "primary": "#8d6e63",
+        "secondary": "#bcaaa4",
+        "accent": "#ffccbc",
+        "background": "#fffdfa",
+        "surface": "#ffffff",
+        "text": "#4e342e"
+      }
+    },
+    "emerald-ledger": {
+      "name": "Emerald Ledger",
+      "mode": "both",
+      "description": "Confident greens for finance and sustainability narratives",
+      "category": "nature",
+      "featured": true,
+      "dark": {
+        "primary": "#16a34a",
+        "secondary": "#34d399",
+        "accent": "#22c55e",
+        "background": "#0b130e",
+        "surface": "#122017",
+        "text": "#d1fae5"
+      },
+      "light": {
+        "primary": "#15803d",
+        "secondary": "#86efac",
+        "accent": "#22c55e",
+        "background": "#f0fdf4",
+        "surface": "#ffffff",
+        "text": "#14532d"
+      }
+    },
+    "coral-productivity": {
+      "name": "Coral Productivity",
+      "mode": "both",
+      "description": "Modern coral with warm energy to drive engagement",
+      "category": "energetic",
+      "featured": true,
+      "dark": {
+        "primary": "#fb7185",
+        "secondary": "#fca5a5",
+        "accent": "#f59e0b",
+        "background": "#19171a",
+        "surface": "#231f25",
+        "text": "#ffe4e6"
+      },
+      "light": {
+        "primary": "#ef4444",
+        "secondary": "#fca5a5",
+        "accent": "#f59e0b",
+        "background": "#fff7f7",
+        "surface": "#ffffff",
+        "text": "#7f1d1d"
+      }
+    },
+    "azure-clarity": {
+      "name": "Azure Clarity",
+      "mode": "both",
+      "description": "Crisp dual blues that emphasize clarity in forms and tables",
+      "category": "clarity",
+      "featured": true,
+      "dark": {
+        "primary": "#0ea5e9",
+        "secondary": "#60a5fa",
+        "accent": "#22d3ee",
+        "background": "#0a0f1a",
+        "surface": "#121826",
+        "text": "#e2f0ff"
+      },
+      "light": {
+        "primary": "#0284c7",
+        "secondary": "#3b82f6",
+        "accent": "#06b6d4",
+        "background": "#f5fbff",
+        "surface": "#ffffff",
+        "text": "#0b2e4a"
+      }
+    },
+    "graphite-pro": {
+      "name": "Graphite Pro",
+      "mode": "both",
+      "description": "Monochrome-first with subtle blue accent; dev‑friendly",
+      "category": "developer",
+      "featured": true,
+      "dark": {
+        "primary": "#94a3b8",
+        "secondary": "#475569",
+        "accent": "#38bdf8",
+        "background": "#0b0c0e",
+        "surface": "#15181c",
+        "text": "#e5e7eb"
+      },
+      "light": {
+        "primary": "#475569",
+        "secondary": "#cbd5e1",
+        "accent": "#0ea5e9",
+        "background": "#ffffff",
+        "surface": "#f1f5f9",
+        "text": "#111827"
+      }
+    },
+    "royal-analytics": {
+      "name": "Royal Analytics",
+      "mode": "both",
+      "description": "Sophisticated purple-driven analytical theme",
+      "category": "analytics",
+      "featured": true,
+      "dark": {
+        "primary": "#7c3aed",
+        "secondary": "#a78bfa",
+        "accent": "#22d3ee",
+        "background": "#100a1f",
+        "surface": "#1a1230",
+        "text": "#ede9fe"
+      },
+      "light": {
+        "primary": "#6d28d9",
+        "secondary": "#a78bfa",
+        "accent": "#06b6d4",
+        "background": "#f6f5ff",
+        "surface": "#ffffff",
+        "text": "#2e1065"
+      }
+    },
+    "solar-professional": {
+      "name": "Solar Professional",
+      "mode": "both",
+      "description": "Warm gold accents that feel welcoming yet formal",
+      "category": "warm",
+      "featured": true,
+      "dark": {
+        "primary": "#f2cd5d",
+        "secondary": "#dea54b",
+        "accent": "#f59e0b",
+        "background": "#151515",
+        "surface": "#1e1e1e",
+        "text": "#fff8e1"
+      },
+      "light": {
+        "primary": "#eab308",
+        "secondary": "#f59e0b",
+        "accent": "#fbbf24",
+        "background": "#fffcf2",
+        "surface": "#ffffff",
+        "text": "#3b2f0e"
+      }
+    },
+    "teal-focus": {
+      "name": "Teal Focus",
+      "mode": "both",
+      "description": "Calming teals with excellent readability",
+      "category": "calm",
+      "featured": true,
+      "dark": {
+        "primary": "#14b8a6",
+        "secondary": "#2dd4bf",
+        "accent": "#5eead4",
+        "background": "#0b1413",
+        "surface": "#13201e",
+        "text": "#d1faf5"
+      },
+      "light": {
+        "primary": "#0d9488",
+        "secondary": "#99f6e4",
+        "accent": "#2dd4bf",
+        "background": "#ecfeff",
+        "surface": "#ffffff",
+        "text": "#0f766e"
+      }
+    },
+    "ruby-statement": {
+      "name": "Ruby Statement",
+      "mode": "both",
+      "description": "Strong red for action, alerts, and operational clarity",
+      "category": "action",
+      "featured": true,
+      "dark": {
+        "primary": "#ef4444",
+        "secondary": "#fb7185",
+        "accent": "#f97316",
+        "background": "#180e0e",
+        "surface": "#251515",
+        "text": "#ffe4e6"
+      },
+      "light": {
+        "primary": "#dc2626",
+        "secondary": "#fda4af",
+        "accent": "#f97316",
+        "background": "#fff5f5",
+        "surface": "#ffffff",
+        "text": "#7f1d1d"
+      }
+    },
+    "cyan-matrix": {
+      "name": "Cyan Matrix",
+      "mode": "both",
+      "description": "Tech‑forward cyan on deep navy surfaces",
+      "category": "tech",
+      "featured": true,
+      "dark": {
+        "primary": "#22d3ee",
+        "secondary": "#67e8f9",
+        "accent": "#06b6d4",
+        "background": "#06121a",
+        "surface": "#0b1e29",
+        "text": "#dff7ff"
+      },
+      "light": {
+        "primary": "#0891b2",
+        "secondary": "#67e8f9",
+        "accent": "#06b6d4",
+        "background": "#f0fbff",
+        "surface": "#ffffff",
+        "text": "#083344"
+      }
+    },
+    "sepia-ledger": {
+      "name": "Sepia Ledger",
+      "mode": "both",
+      "description": "Editorial warmth suited for reading and finance dashboards",
+      "category": "editorial",
+      "featured": true,
+      "dark": {
+        "primary": "#d4af7a",
+        "secondary": "#c4b5a5",
+        "accent": "#f5deb3",
+        "background": "#14110f",
+        "surface": "#1c1917",
+        "text": "#f5f0e6"
+      },
+      "light": {
+        "primary": "#8b6b4a",
+        "secondary": "#d6c4b2",
+        "accent": "#e8d5c4",
+        "background": "#fffaf3",
+        "surface": "#ffffff",
+        "text": "#3f2f22"
+      }
+    },
+    "glacier-ux": {
+      "name": "Glacier UX",
+      "mode": "both",
+      "description": "Cool, airy palette optimized for long work sessions",
+      "category": "cool",
+      "featured": true,
+      "dark": {
+        "primary": "#60a5fa",
+        "secondary": "#93c5fd",
+        "accent": "#86efac",
+        "background": "#0b1220",
+        "surface": "#131c2b",
+        "text": "#e6f0ff"
+      },
+      "light": {
+        "primary": "#2563eb",
+        "secondary": "#93c5fd",
+        "accent": "#22c55e",
+        "background": "#f8fbff",
+        "surface": "#ffffff",
+        "text": "#0b1a33"
+      }
+    }
+  },
+  "meta": {
+    "version": "2.0.0",
+    "generated": "2024-01-20T00:00:00Z",
+    "author": "CelestialUI Team",
+    "description": "Professional themes with both light and dark modes for enterprise applications"
+  }
+}

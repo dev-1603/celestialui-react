@@ -1,0 +1,348 @@
+/**
+ * CelestialUI Design System CSS Variables
+ *
+ * This file defines all CSS variables used throughout the application.
+ * Variables are generated and applied by the design system generator.
+ */
+
+/* ============================================================================ */
+/* CORE COLORS */
+/* ============================================================================ */
+
+:root {
+  /* Primary Color Scale */
+  --cui-color-primary: #1976d2;
+  --cui-color-primary-25: #f0f9ff;
+  --cui-color-primary-50: #e0f2fe;
+  --cui-color-primary-100: #bae6fd;
+  --cui-color-primary-200: #7dd3fc;
+  --cui-color-primary-300: #38bdf8;
+  --cui-color-primary-400: #0ea5e9;
+  --cui-color-primary-500: #0284c7;
+  --cui-color-primary-600: #0369a1;
+  --cui-color-primary-700: #075985;
+  --cui-color-primary-800: #0c4a6e;
+  --cui-color-primary-900: #082f49;
+  --cui-color-primary-950: #0c1821;
+
+  /* Primary Opacity Variants */
+  --cui-color-primary-ghost: rgba(25, 118, 210, 0.05);
+  --cui-color-primary-subtle: rgba(25, 118, 210, 0.1);
+  --cui-color-primary-muted: rgba(25, 118, 210, 0.2);
+  --cui-color-primary-light: rgba(25, 118, 210, 0.4);
+  --cui-color-primary-medium: rgba(25, 118, 210, 0.6);
+  --cui-color-primary-strong: rgba(25, 118, 210, 0.8);
+
+  /* Primary State Variants */
+  --cui-color-primary-hover: #1565c0;
+  --cui-color-primary-active: #0d47a1;
+  --cui-color-primary-pressed: #1565c0;
+  --cui-color-primary-selected: #2196f3;
+  --cui-color-primary-disabled: rgba(25, 118, 210, 0.4);
+  --cui-color-primary-focus: #1976d2;
+
+  /* Secondary Colors */
+  --cui-color-secondary: #42a5f5;
+  --cui-color-secondary-hover: #1e88e5;
+  --cui-color-secondary-active: #1976d2;
+
+  /* Accent Colors */
+  --cui-color-accent: #03a9f4;
+  --cui-color-accent-hover: #0288d1;
+  --cui-color-accent-active: #0277bd;
+
+  /* Background Colors */
+  --cui-color-background-base: #ffffff;
+  --cui-color-background-surface: #f5f7fa;
+  --cui-color-background-elevated: #ffffff;
+  --cui-color-background-overlay: rgba(255, 255, 255, 0.8);
+  --cui-color-background-muted: #f8f9fa;
+  --cui-color-background-hover: #f1f5f9;
+  --cui-color-background-pressed: #e2e8f0;
+  --cui-color-background-selected: rgba(25, 118, 210, 0.1);
+  --cui-color-background-disabled: #f9fafb;
+
+  /* Surface Colors */
+  --cui-color-surface-primary: #f5f7fa;
+  --cui-color-surface-secondary: #e2e8f0;
+  --cui-color-surface-tertiary: #cbd5e1;
+  --cui-color-surface-raised: #ffffff;
+  --cui-color-surface-overlay: rgba(255, 255, 255, 0.95);
+  --cui-color-surface-inverse: #111827;
+
+  /* Text Colors */
+  --cui-color-text-primary: #111827;
+  --cui-color-text-secondary: #64748b;
+  --cui-color-text-tertiary: #9ca3af;
+  --cui-color-text-muted: #6b7280;
+  --cui-color-text-disabled: #d1d5db;
+  --cui-color-text-inverse: #fafafa;
+  --cui-color-text-on-primary: #ffffff;
+  --cui-color-text-on-secondary: #ffffff;
+  --cui-color-text-on-accent: #ffffff;
+  --cui-color-text-on-success: #ffffff;
+  --cui-color-text-on-warning: #111827;
+  --cui-color-text-on-error: #ffffff;
+
+  /* Border Colors */
+  --cui-color-border-base: #e5e7eb;
+  --cui-color-border-light: #d1d5db;
+  --cui-color-border-strong: #9ca3af;
+  --cui-color-border-focus: #1976d2;
+  --cui-color-border-error: #dc2626;
+  --cui-color-border-success: #059669;
+  --cui-color-border-warning: #d97706;
+  --cui-color-border-disabled: #f3f4f6;
+
+  /* Semantic Colors */
+  --cui-color-success: #059669;
+  --cui-color-success-50: #ecfdf5;
+  --cui-color-success-100: #dcfce7;
+  --cui-color-success-600: #059669;
+  --cui-color-success-700: #047857;
+
+  --cui-color-warning: #d97706;
+  --cui-color-warning-50: #fffbeb;
+  --cui-color-warning-100: #fef3c7;
+  --cui-color-warning-600: #d97706;
+  --cui-color-warning-700: #a16207;
+
+  --cui-color-error: #dc2626;
+  --cui-color-error-50: #fef2f2;
+  --cui-color-error-100: #fee2e2;
+  --cui-color-error-600: #dc2626;
+  --cui-color-error-700: #b91c1c;
+
+  --cui-color-info: #2563eb;
+  --cui-color-info-50: #eff6ff;
+  --cui-color-info-100: #dbeafe;
+  --cui-color-info-600: #2563eb;
+  --cui-color-info-700: #1d4ed8;
+
+  --cui-color-neutral: #9ca3af;
+  --cui-color-neutral-50: #f9fafb;
+  --cui-color-neutral-100: #f3f4f6;
+  --cui-color-neutral-600: #9ca3af;
+  --cui-color-neutral-700: #6b7280;
+}
+
+/* ============================================================================ */
+/* TYPOGRAPHY */
+/* ============================================================================ */
+
+:root {
+  /* Font Families */
+  --cui-font-primary: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --cui-font-secondary: Inter, sans-serif;
+  --cui-font-mono: 'SF Mono', Monaco, Menlo, Consolas, 'Courier New', monospace;
+
+  /* Font Weights */
+  --cui-font-weight-thin: 100;
+  --cui-font-weight-extra-light: 200;
+  --cui-font-weight-light: 300;
+  --cui-font-weight-normal: 400;
+  --cui-font-weight-medium: 500;
+  --cui-font-weight-semi-bold: 600;
+  --cui-font-weight-bold: 700;
+  --cui-font-weight-extra-bold: 800;
+  --cui-font-weight-black: 900;
+
+  /* Font Sizes */
+  --cui-font-size-xs: 0.75rem;     /* 12px */
+  --cui-font-size-sm: 0.875rem;    /* 14px */
+  --cui-font-size-base: 1rem;      /* 16px */
+  --cui-font-size-lg: 1.125rem;    /* 18px */
+  --cui-font-size-xl: 1.25rem;     /* 20px */
+  --cui-font-size-2xl: 1.5rem;     /* 24px */
+  --cui-font-size-3xl: 1.875rem;   /* 30px */
+  --cui-font-size-4xl: 2.25rem;    /* 36px */
+  --cui-font-size-5xl: 3rem;       /* 48px */
+  --cui-font-size-6xl: 4rem;       /* 64px */
+
+  /* Line Heights */
+  --cui-line-height-tight: 1.25;
+  --cui-line-height-snug: 1.375;
+  --cui-line-height-normal: 1.5;
+  --cui-line-height-relaxed: 1.625;
+  --cui-line-height-loose: 2;
+
+  /* Letter Spacing */
+  --cui-letter-spacing-tighter: -0.05em;
+  --cui-letter-spacing-tight: -0.025em;
+  --cui-letter-spacing-normal: 0;
+  --cui-letter-spacing-wide: 0.025em;
+  --cui-letter-spacing-wider: 0.05em;
+  --cui-letter-spacing-widest: 0.1em;
+}
+
+/* ============================================================================ */
+/* SPACING */
+/* ============================================================================ */
+
+:root {
+  /* Base Spacing Scale */
+  --cui-spacing-0: 0;
+  --cui-spacing-1: 0.25rem;    /* 4px */
+  --cui-spacing-2: 0.5rem;     /* 8px */
+  --cui-spacing-3: 0.75rem;    /* 12px */
+  --cui-spacing-4: 1rem;       /* 16px */
+  --cui-spacing-5: 1.25rem;    /* 20px */
+  --cui-spacing-6: 1.5rem;     /* 24px */
+  --cui-spacing-8: 2rem;       /* 32px */
+  --cui-spacing-10: 2.5rem;    /* 40px */
+  --cui-spacing-12: 3rem;      /* 48px */
+  --cui-spacing-16: 4rem;      /* 64px */
+  --cui-spacing-20: 5rem;      /* 80px */
+  --cui-spacing-24: 6rem;      /* 96px */
+  --cui-spacing-32: 8rem;      /* 128px */
+  --cui-spacing-40: 10rem;     /* 160px */
+  --cui-spacing-48: 12rem;     /* 192px */
+  --cui-spacing-56: 14rem;     /* 224px */
+  --cui-spacing-64: 16rem;     /* 256px */
+
+  /* Semantic Spacing */
+  --cui-component-padding-xs: var(--cui-spacing-1);
+  --cui-component-padding-sm: var(--cui-spacing-2);
+  --cui-component-padding-md: var(--cui-spacing-4);
+  --cui-component-padding-lg: var(--cui-spacing-6);
+  --cui-component-padding-xl: var(--cui-spacing-8);
+
+  --cui-section-margin-sm: var(--cui-spacing-8);
+  --cui-section-margin-md: var(--cui-spacing-12);
+  --cui-section-margin-lg: var(--cui-spacing-16);
+
+  --cui-container-gap-sm: var(--cui-spacing-4);
+  --cui-container-gap-md: var(--cui-spacing-6);
+  --cui-container-gap-lg: var(--cui-spacing-8);
+}
+
+/* ============================================================================ */
+/* BORDER RADIUS */
+/* ============================================================================ */
+
+:root {
+  --cui-radius-none: 0;
+  --cui-radius-xs: 0.125rem;    /* 2px */
+  --cui-radius-sm: 0.25rem;     /* 4px */
+  --cui-radius-base: 0.375rem;  /* 6px */
+  --cui-radius-md: 0.5rem;      /* 8px */
+  --cui-radius-lg: 0.75rem;     /* 12px */
+  --cui-radius-xl: 1rem;        /* 16px */
+  --cui-radius-2xl: 1.5rem;     /* 24px */
+  --cui-radius-3xl: 2rem;       /* 32px */
+  --cui-radius-full: 9999px;
+}
+
+/* ============================================================================ */
+/* SHADOWS */
+/* ============================================================================ */
+
+:root {
+  --cui-shadow-none: none;
+  --cui-shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --cui-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --cui-shadow-base: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --cui-shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --cui-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --cui-shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --cui-shadow-2xl: 0 50px 100px -25px rgba(0, 0, 0, 0.25);
+  --cui-shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* ============================================================================ */
+/* ANIMATION */
+/* ============================================================================ */
+
+:root {
+  /* Duration */
+  --cui-duration-fast: 150ms;
+  --cui-duration-normal: 250ms;
+  --cui-duration-slow: 350ms;
+  --cui-duration-slower: 500ms;
+
+  /* Easing */
+  --cui-easing-linear: linear;
+  --cui-easing-ease: ease;
+  --cui-easing-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --cui-easing-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --cui-easing-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --cui-easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ============================================================================ */
+/* Z-INDEX */
+/* ============================================================================ */
+
+:root {
+  --cui-z-hide: -1;
+  --cui-z-auto: auto;
+  --cui-z-base: 0;
+  --cui-z-docked: 10;
+  --cui-z-dropdown: 1000;
+  --cui-z-sticky: 1100;
+  --cui-z-banner: 1200;
+  --cui-z-overlay: 1300;
+  --cui-z-modal: 1400;
+  --cui-z-popover: 1500;
+  --cui-z-skip-link: 1600;
+  --cui-z-toast: 1700;
+  --cui-z-tooltip: 1800;
+}
+
+/* ============================================================================ */
+/* BREAKPOINTS */
+/* ============================================================================ */
+
+:root {
+  --cui-breakpoint-xs: 0px;
+  --cui-breakpoint-sm: 640px;
+  --cui-breakpoint-md: 768px;
+  --cui-breakpoint-lg: 1024px;
+  --cui-breakpoint-xl: 1280px;
+  --cui-breakpoint-2xl: 1536px;
+}
+
+/* ============================================================================ */
+/* DARK MODE OVERRIDES */
+/* ============================================================================ */
+
+.cui-dark {
+  /* Background Colors - Dark Mode */
+  --cui-color-background-base: #121212;
+  --cui-color-background-surface: #1e1e1e;
+  --cui-color-background-elevated: #2a2a2a;
+  --cui-color-background-overlay: rgba(0, 0, 0, 0.8);
+  --cui-color-background-muted: #1a1a1a;
+  --cui-color-background-hover: #262626;
+  --cui-color-background-pressed: #171717;
+  --cui-color-background-disabled: #0a0a0a;
+
+  /* Surface Colors - Dark Mode */
+  --cui-color-surface-primary: #1e1e1e;
+  --cui-color-surface-secondary: #252525;
+  --cui-color-surface-tertiary: #2a2a2a;
+  --cui-color-surface-raised: #333333;
+  --cui-color-surface-overlay: rgba(0, 0, 0, 0.95);
+  --cui-color-surface-inverse: #ffffff;
+
+  /* Text Colors - Dark Mode */
+  --cui-color-text-primary: #e0e0e0;
+  --cui-color-text-secondary: #a1a1aa;
+  --cui-color-text-tertiary: #71717a;
+  --cui-color-text-muted: #52525b;
+  --cui-color-text-disabled: #3f3f46;
+  --cui-color-text-inverse: #111827;
+
+  /* Border Colors - Dark Mode */
+  --cui-color-border-base: #333333;
+  --cui-color-border-light: #404040;
+  --cui-color-border-strong: #555555;
+  --cui-color-border-disabled: #262626;
+
+  /* Semantic Colors - Dark Mode */
+  --cui-color-success-100: #064e3b;
+  --cui-color-warning-100: #451a03;
+  --cui-color-error-100: #7f1d1d;
+  --cui-color-info-100: #1e3a8a;
+  --cui-color-neutral-100: #1f2937;
+}

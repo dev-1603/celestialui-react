@@ -12,7 +12,7 @@ let toasts: Toast[] = []
 const subscribers = new Set<() => void>()
 
 const notifySubscribers = () => {
-  subscribers.forEach(callback => callback())
+  subscribers.forEach((callback) => callback())
 }
 
 let toastIdCounter = 0
@@ -39,7 +39,7 @@ export function useToast() {
       duration: options.duration || 5000,
       persistent: options.persistent || false,
       position: options.position || 'top-right',
-      action: options.action
+      action: options.action,
     }
 
     toasts.push(toast)
@@ -56,7 +56,7 @@ export function useToast() {
   }, [])
 
   const removeToast = useCallback((id: string) => {
-    toasts = toasts.filter(toast => toast.id !== id)
+    toasts = toasts.filter((toast) => toast.id !== id)
     notifySubscribers()
   }, [])
 
@@ -66,21 +66,33 @@ export function useToast() {
   }, [])
 
   // Convenience methods
-  const success = useCallback((message: string, options?: Partial<ToastOptions>) => {
-    return addToast({ ...options, message, type: 'success' })
-  }, [addToast])
+  const success = useCallback(
+    (message: string, options?: Partial<ToastOptions>) => {
+      return addToast({ ...options, message, type: 'success' })
+    },
+    [addToast],
+  )
 
-  const error = useCallback((message: string, options?: Partial<ToastOptions>) => {
-    return addToast({ ...options, message, type: 'error' })
-  }, [addToast])
+  const error = useCallback(
+    (message: string, options?: Partial<ToastOptions>) => {
+      return addToast({ ...options, message, type: 'error' })
+    },
+    [addToast],
+  )
 
-  const warning = useCallback((message: string, options?: Partial<ToastOptions>) => {
-    return addToast({ ...options, message, type: 'warning' })
-  }, [addToast])
+  const warning = useCallback(
+    (message: string, options?: Partial<ToastOptions>) => {
+      return addToast({ ...options, message, type: 'warning' })
+    },
+    [addToast],
+  )
 
-  const info = useCallback((message: string, options?: Partial<ToastOptions>) => {
-    return addToast({ ...options, message, type: 'info' })
-  }, [addToast])
+  const info = useCallback(
+    (message: string, options?: Partial<ToastOptions>) => {
+      return addToast({ ...options, message, type: 'info' })
+    },
+    [addToast],
+  )
 
   return {
     toasts,
@@ -90,6 +102,6 @@ export function useToast() {
     success,
     error,
     warning,
-    info
+    info,
   }
 }

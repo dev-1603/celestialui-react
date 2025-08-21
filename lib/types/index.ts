@@ -18,6 +18,7 @@ export interface ThemeConfig {
   mode: 'light' | 'dark' | 'auto'
   tokens: Record<string, any>
   customProperties?: Record<string, string>
+  themeId?: string
 }
 
 export interface ThemeTokens {
@@ -132,7 +133,13 @@ export interface ToastOptions {
     label: string
     handler: () => void
   }
-  position?: 'top-left' | 'top-center' | 'top-right' | 'bottom-left' | 'bottom-center' | 'bottom-right'
+  position?:
+    | 'top-left'
+    | 'top-center'
+    | 'top-right'
+    | 'bottom-left'
+    | 'bottom-center'
+    | 'bottom-right'
 }
 
 // Plugin configuration
